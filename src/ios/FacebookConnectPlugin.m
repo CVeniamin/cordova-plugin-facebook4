@@ -760,6 +760,7 @@ void FBMethodSwizzle(Class c, SEL originalSelector) {
 + (void)load
 {
     FBMethodSwizzle([self class], @selector(application:openURL:sourceApplication:annotation:));
+    FBMethodSwizzle([self class], @selector(application:openURL:sourceApplication:annotation:));
 }
 
 // This method is a duplicate of the other openURL method below, except using the newer iOS (9) API.
@@ -781,7 +782,7 @@ void FBMethodSwizzle(Class c, SEL originalSelector) {
 
 - (BOOL)noop_application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return NO;
+    return YES;
 }
 
 - (BOOL)swizzled_application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
